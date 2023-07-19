@@ -26,10 +26,7 @@ pipeline {
                 terraformPlan()
             }
         }
-        stage('Approval') {
-            steps {
-                input(message: 'Apply Terraform ?')
-            }
+       
         }
         stage('Apply') {
             steps {
