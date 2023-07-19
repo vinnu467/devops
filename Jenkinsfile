@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         
-        BACKEND_BUCKET        = "vprofile-prod-app"
+        BACKEND_BUCKET        = "vinu143"
     }
 
     parameters {
@@ -26,18 +26,18 @@ pipeline {
                 terraformPlan()
             }
         }
-       
-        
         stage('Apply') {
             steps {
                 terraformApply()
             }
         }
+    }
+    
 }
 
 def terraformInit() {
     sh("""
-    
+        
         terraform init -backend-config="bucket=${env.BACKEND_BUCKET}" -backend-config="key=demo.tfstate"
     """)
 }
@@ -58,7 +58,6 @@ def terraformPlan() {
 
 def terraformApply() {
     sh("""
-        
         terraform apply tfout -no-color
 
     """)
