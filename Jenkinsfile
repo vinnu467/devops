@@ -27,14 +27,12 @@ pipeline {
             }
         }
        
-        }
+        
         stage('Apply') {
             steps {
                 terraformApply()
             }
         }
-   
-    
 }
 
 def terraformInit() {
