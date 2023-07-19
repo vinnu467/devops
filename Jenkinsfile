@@ -42,7 +42,7 @@ pipeline {
 
 def terraformInit() {
     sh("""
-        cd Terraform/Demo;
+    
         terraform init -backend-config="bucket=${env.BACKEND_BUCKET}" -backend-config="key=demo.tfstate"
     """)
 }
