@@ -56,14 +56,14 @@ def terraformPlan() {
     }
 
     sh("""
-        cd Terraform/Demo;
+        
         terraform plan ${env.DESTROY}  -no-color -out=tfout
     """)
 }
 
 def terraformApply() {
     sh("""
-        cd Terraform/Demo;
+        
         terraform apply tfout -no-color
 
     """)
